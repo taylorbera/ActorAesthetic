@@ -1,3 +1,6 @@
+#### ** SPECIFICATIONS DOC, REPORT POWERPOINT, & mp4 DEMOS can be found under demo folder 
+  
+  
   Within the theatre community, there is always someone looking to learn. From inexperienced to professional, performers are constantly in class, teaching class, 
 and studying. However, taking classes is inaccessible to those who live outside of New York City. Even in a place that encourages the arts, it can be impossible 
 to find appropriate teachers. 
