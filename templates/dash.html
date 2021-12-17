@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Site title
+   ================================================== -->
+	<title>ActorAestheticDatabase</title>
+
+		<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- Google web font 
+   ================================================== -->	
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+	
+</head>
+
+<body>
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+<script type="application/javascript" src="../static/include/header.js"></script>
+
+<!-- Header section
+================================================== -->
+<section id="header" class="header-two">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+          <div class="header-thumb">
+              <h1 class="wow fadeIn" data-wow-delay="0.6s">ADMIN DASHBOARD</h1>
+              <h3 class="wow fadeInUp" data-wow-delay="0.9s">Create and search podcasts and posts</h3>
+          </div>
+			</div>
+
+		</div>
+	</div>		
+</section>
+
+
+<!-- Blog section
+================================================== -->
+<div class="blog-container">
+    <div class="blog-inner transparent">
+
+        <div class="blogBar">
+            <section class="container">
+                <div class="row">
+
+                    <div class="blogCreate">
+                        <div class="form-container">
+                            <!-- Button trigger modal -->
+                        <button type="button" class="ion-plus btn-lg center-block" data-toggle="modal" data-target="#blogform">
+                         Create New Blog
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="blogform" tabindex="-1" role="dialog" aria-labelledby="formTitle" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title" id="formTitle">New Blog</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+
+                              <div class="modal-body">
+                                  <form id="newBlog" method="POST" action="/dashboard">
+                                      <div class="form-group">
+                                          <label for="postTitle"> Post Title</label>
+                                          <input name="postTitle" type="text" class="form-control" id="postTitle" placeholder="Title">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="postSub"> Subtitle</label>
+                                          <input name="postSub" type="text" class="form-control" id="postSub" placeholder="A Brief Description of Post">
+                                      </div>
+
+                                      <div class="form-group">
+                                          <label for="postDate">Date</label>
+                                          <input name="postDate" type="datetime-local" class="form-control" id="postDate" placeholder="Date Created">
+                                      </div>
+
+                                      <div class="form-group">
+                                          <label for="postContent">Post Content</label><br>
+                                          <textarea name="postContent" cols="60" rows="8" id="postContent" placeholder="Content"></textarea>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="file">Example file input</label>
+                                          <input name='file' type="file" class="form-control-file" id="file">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="category">Choose Categories</label>
+                                          <select name='category' class="form-control" id="category">
+                                              <option id="lifestyle" name="lifestyle" value="lifestyle">Lifestyle</option>
+                                              <option id="equity" name="equity" value="equity">Equity</option>
+                                              <option id="auditioning" name="auditioning" value="auditioning">Auditioning</option>
+                                              <option id="college" name="college" value="college">College</option>
+
+                                          </select>
+                                      </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" name="blogSubmit" form="newBlog">
+                              </div>
+                                  </form>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="blogDB">
+            {%for row in blogdata%}
+            <div class="single wow fadeInUp" data-wow-delay=".5s">
+                <img src="../static/image/{{row[2]}}" class="img-responsive" alt="Blog">
+                <h4>{{row[0]}}</h4>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <h3>{{row[1]}}</h3>
+
+                <form id='selectedPost' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPost">Full Article</button>
+                </form>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Podcast section
+================================================== -->
+<div class="pod-container">
+    <div class="pod-inner transparent">
+
+        <div class="podBar">
+            <section class="container">
+                <div class="row">
+
+                    <div class="podCreate">
+                        <div class="form-container">
+                            <!-- Button trigger modal -->
+                        <button type="button" class="ion-plus btn-lg center-block" data-toggle="modal" data-target="#podcastform">
+                         Create New Podcast Page
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="podcastform" tabindex="-1" role="dialog" aria-labelledby="formTitle" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title" id="podformTitle">New Podcast</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+
+                              <div class="modal-body">
+                                  <form id="newPod" method="POST" action="/dashboard">
+                                      <div class="form-group">
+                                          <label for="podTitle">Podcast Title</label>
+                                          <input name="podTitle" type="text" class="form-control" id="podTitle" placeholder="Title">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="podSub"> Podcast Episode</label>
+                                          <input name="podSub" type="text" class="form-control" id="podSub" placeholder="Episode">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="podGuest">Podcast Guest</label>
+                                          <input name="podGuest" type="text" class="form-control" id="podGuest" placeholder="Guest">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="podDate">Date</label>
+                                          <input name="podDate" type="datetime-local" class="form-control" id="podDate" placeholder="Date Created">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="podContent">Brieff Description of Episode</label>
+                                          <textarea name="podContent" cols="60" rows="8" type="text" class="form-control" id="podContent" placeholder="Content"></textarea>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="podURL">Url to Podcast</label><br>
+                                          <input name="podURL" type="text" id="podURL" placeholder="URL">
+                                      </div>
+
+                                      <div class="form-group">
+                                          <label for="podAudio">Image</label>
+                                          <input name='podAudio' type="file" class="form-control-file" id="podFile">
+                                      </div>
+
+                                        <div class="form-group">
+                                          <label for="podText">mp3 Transcription</label>
+                                          <input name='podText' type="file" class="form-control-file" id="podText">
+                                      </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" name="podSubmit" form="newPod">
+                              </div>
+                                  </form>
+
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="blogDB">
+            {%for row in podata%}
+            <div class="single wow fadeInUp" data-wow-delay=".5s">
+                <i class="fa fa-microphone fa-3x"></i>
+                <h3>{{row[0]}}</h3>
+                <h4>{{row[1]}}</h4>
+
+                <form id='selectedPod' method="POST" action="/podcastPost">
+                    <button name="listenButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPod">Full Podcast</button>
+                </form>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Footer section
+================================================== -->
+<footer>
+</footer>
+
+
+
+<!-- Javascript 
+================================================== -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../AAserver.py"></script>
+</body>
+</html>

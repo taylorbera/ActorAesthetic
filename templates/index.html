@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+    <!-- Site title
+   ================================================== -->
+	<title>Actor Aesthetic - Home</title>
+
+	<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- Google web font
+   ================================================== -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+
+<script type="application/javascript" src="../static/include/header.js"></script>
+
+<!-- Header 
+================================================== -->
+<section id="header" class="header-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                <div class="header-thumb">
+                    <h1 class="wow fadeIn" data-wow-delay="0.3s">actor aesthetic</h1>
+                    <h5 class="wow fadeInUp" data-wow-delay="0.6s">lifestyle blog || podcast</h5>
+                    <h5 class="wow  fadeInUp" data-wow-delay=".9s">online learning community</h5>
+                </div>
+            </div>
+	</div>	
+    </div>
+</section>
+
+
+<!-- Portfolio section
+================================================== -->
+<section id="portfolio">
+    <div class="container" style="width: 100%">
+        <div class="iso-section wow fadeInUp center" data-wow-delay=".6s">
+            <ul class="filter-wrapper clearfix">
+                <li><a href="#" class="opc-main-bg" data-filter=".all"  style="text-decoration:underline">View All</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".about" >About</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".life">Lifestyle</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".equity">Equity</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".aud">Audition Tips</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".team">Coaching</a></li>
+            </ul>
+            <hr>
+        </div>
+        <div class="iso-box-wrapper wow fadeInUp" data-wow-delay="1s">
+            <div class="iso-box all about col-md-8" style="height:325px;background-image: url('../static/image/nycskyline.png'); background-size: 80% 96%; background-repeat: no-repeat;">
+                <img src="../static/image/AA.png" alt="good stuff" style="width: 200px; padding-left: 10px; float: right">
+                <h4>Created by New York City-based actress, Maggie Bera, Actor Aesthetic is a blog, podcast, and online learning community
+                    designed to educate artists pursuing a career in the theatre industry. Read up on audition tips, actor lifestyle hacks,
+                    musical theatre college auditions, Actors’ Equity Association, and more below!</h4>
+
+                <div class="single"style=" margin-top: 20em; text-align: left; width:600px;float: right">
+                    <h3>*** be sure to check out the<a href="/podcast" style="text-decoration: underline"> Actor Aesthetic Podcast</a> ***</h3>
+                    <h3>new episodes every Monday !!</h3>
+                    <h1>xoxo</h1>
+                    <img src="../static/image/maggieSig.png" style="height: 60px; width: auto"/>
+                </div>
+            </div>
+            <div class="iso-box all about col-md-4" style="padding-left: 4em">
+                <h3>Our friends are loving...</h3>
+                <div id="homeslide" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#homeslide" data-slide-to="0" class="active"></li>
+                        <li data-target="#homeslide" data-slide-to="1"></li>
+                        <li data-target="#homeslide" data-slide-to="2"></li>
+                        <li data-target="#homeslide" data-slide-to="3"></li>
+                        <li data-target="#homeslide" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="single">
+                                <div class="portfolio-thumb">
+                                    <img src="../static/image/wickedEdit" style="border-radius: 10%">
+                                    <div class="portfolio-overlay">
+                                        <div class="portfolio-item" style="margin: 20px 5px">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            <h2>Come back soon for important updates!</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {%for row in favorites%}
+                            <div class="item">
+                                <div class="single">
+                                    <div class="portfolio-thumb">
+                                        <img src="../static/image/{{row[2]}}" alt="Maggie's Choice" style="border-radius: 20%">
+                                        <div class="portfolio-overlay">
+                                            <div class="portfolio-item">
+                                                <form id='selectedPost' method="POST" action="/blogPost">
+                                                    <button name="readButton" class="fa fa-coffee" value="{{row[0]}}"  form="selectedPost"></button>
+                                                </form>
+                                                <h2>{{row[1]}}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+            <p style="margin-top:2em"></p>
+
+            <div class="iso-box all life">
+                <div class="index-header">
+                        <img src="../static/image/Actor+Lifestyle.png">
+                        <h3>Learn how to optimize your social media game,
+                            nail your next self-tape audition, create a
+                            professional website, land a side job, find new
+                            plays, submit to casting directors, and more.</h3>
+                </div>
+                <div class="index-group">
+                    {%for row in lifestyle%}
+                        <div class="single life">
+                            <img src="../static/image/{{row[2]}}" alt="Blog">
+                            <h3>{{row[0]}}</h3>
+                            <div class="post-format">
+                                <span>By <a>Maggie Bera</a></span>
+                            </div>
+                            <p>{{row[1]}}</p>
+                            <form id='selectedPostlife' method="POST" action="/blogPost">
+                                <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                            </form>
+                        </div>
+                    {%endfor%}
+                </div>
+                <hr>
+            </div>
+
+            <p style="margin-top:2em"></p>
+
+            <div class="iso-box all aud">
+                <div class="index-header">
+                        <img src="../static/image/Audition+Tips.png">
+                        <h3>Read the latest tips on auditions, including monologues,
+                            self-tapes, casting director submissions, and hundreds of
+                            audition song suggestions categorized by voice type and
+                            genre (soprano, alto, tenor, baritone / contemporary,
+                            traditional).</h3>
+                    </div>
+                <div class="index-group">
+                    {%for row in audition%}
+                        <div class="single ">
+                            <img src="../static/image/{{row[2]}}" alt="Blog">
+                            <h3>{{row[0]}}</h3>
+                            <div class="post-format">
+                                <span>By <a>Maggie Bera</a></span>
+                            </div>
+                            <p>{{row[1]}}</p>
+                            <form id='selectedPostaud' method="POST" action="/blogPost">
+                                <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostaud">Full Article</button>
+                            </form>
+                        </div>
+                    {%endfor%}
+                </div>
+                <hr>
+            </div>
+
+            <p style="margin-top:2em"></p>
+
+            <div class="iso-box all equity">
+                <div class="index-header">
+                        <img src="../static/image/actorsequity.png">
+                        <h3>Actors' Equity Association, founded in 1913, represents more than 51,000 professional
+                            Actors and Stage Managers nationwide. Equity seeks to foster the art of live theatre as an
+                            essential component of society and advances the careers of its members by negotiating wages,
+                            improving working conditions and providing a wide range of benefits, including health and pension plans.</h3>
+                    </div>
+                <div class="index-group">
+                    {%for row in equity%}
+                        <div class="single">
+                            <img src="../static/image/{{row[2]}}" alt="Blog">
+                            <h3>{{row[0]}}</h3>
+                            <div class="post-format">
+                                <span>By <a>Maggie Bera</a></span>
+                            </div>
+                            <p>{{row[1]}}</p>
+                            <form id='selectedPostequity' method="POST" action="/blogPost">
+                                <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostequity">Full Article</button>
+                            </form>
+                        </div>
+                    {%endfor%}
+                </div>
+                <hr>
+            </div>
+
+            <p style="margin-top:2em"></p>
+
+            <div class="index-team iso-box all team">
+                <img src="../static/image/trainwithus.png" alt="team" style="width: 50%">
+                <img src="../static/image/team" alt="team" style="width: 50%; float: left">
+                <p style="margin-top:5em"></p>
+                <h2>Learn how to build your musical theatre audition book, find most quality monologues that work for you, prep
+                    for college auditions, and strengthen your dance technique by training with the Actor Aesthetic coaching team!</h2>
+
+                <p style="margin-top:5em"></p>
+
+                <div class="btn-group-lg">
+                    <button type="button" style="background: rgba(20,64,61,0.22); margin: 2px" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Maggie</button>
+                    <div class="dropdown-menu" style="padding:10px">
+                        <h5 class="dropdown-item"> * Musical Theatre Rep</h5>
+                        <h5 class="dropdown-item"> * Audition Prep</h5>
+                    </div>
+                </div>
+
+                <div class="btn-group-lg">
+                    <button type="button" style="background:#95d1e0; margin: 2px" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Jennifer</button>
+                    <div class="dropdown-menu" style="padding:10px">
+                        <h5 class="dropdown-item"> * Monologue Sourcing</h5>
+                        <h5 class="dropdown-item"> * Monologue Coaching</h5>
+                    </div>
+                </div>
+
+                <div class="btn-group-lg">
+                    <button type="button" style="background: pink; margin: 2px" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Liliana</button>
+                    <div class="dropdown-menu" style="padding:10px">
+                        <h5 class="dropdown-item"> * Private  Dance Lessons</h5>
+                        <h5 class="dropdown-item"> * Small Group Classes</h5>
+                    </div>
+                </div>
+
+                <p style="margin-top:5em"></p>
+                <h1><a href="/about"> learn more</a>
+                    <i class="ion-ios-arrow-forward"></i></h1>
+             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer section
+================================================== -->
+<footer>
+  <script type="application/javascript" src="../static/include/footer.js"></script>
+</footer>
+
+<!-- Javascript 
+================================================== -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/isotope.js"></script>
+<script src="../static/js/imagesloaded.min.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../AAserver.py"></script>
+
+</body>
+</html>
+                        

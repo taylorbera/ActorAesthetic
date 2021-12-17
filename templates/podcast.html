@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Site title
+   ================================================== -->
+	<title>Actor Aesthetic - Podcast</title>
+
+	<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- Google web font
+   ================================================== -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+<script type="application/javascript" src="../static/include/header.js"></script>
+
+<!-- Header
+================================================== -->
+<section id="header" class="header-two">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                <div class="header-thumb">
+                    <h1 class="wow fadeIn" data-wow-delay="0.3s">Podcast</h1>
+                    <h5 class="wow fadeInUp" data-wow-delay="0.6s">listen to maggie on</h5>
+                    <h5 class="wow  fadeInUp" data-wow-delay=".9s">apple podcasts, spotify, or stitcher!</h5>
+                </div>
+            </div>
+	</div>
+    </div>
+</section>
+
+
+<!-- Portfolio section
+================================================== -->
+<section id="podcast">
+    <div class="container">
+        <div class="row">
+            <div class="iso-box-wrapper wow fadeInUp col4-iso-box">
+                <p style="margin-top:2em"></p>
+                <div class="iso-box about col-sm-8">
+                    <h4>Hosted by New York City-based actress Maggie Bera, the Actor Aesthetic Podcast covers all you
+                      need to know about auditioning, performing, traveling, networking, training and building a career
+                      as a performer in the theater industry. The podcast welcomes the stories of actors and fellow creatives
+                      of all backgrounds.</h4>
+                      <hr>
+                    <h3>Past guests on the podcast include Kara Lindsay (Newsies), Mariah Rose Faith (Mean Girls),
+                      JJ Niemann (Book of Mormon), Ben Crawford (Phantom), Lindsay Heather Pearce (Wicked), Tyler McKenzie
+                      (Hamilton), Shereen Pimentel (West Side Story), Paloma Garcia-Lee (Moulin Rouge), Ciara Alyse Harris
+                      (Dear Evan Hansen), Kimberly Marable (Hadestown), Jennifer Apple (The Band’s Visit), Courtney Mack
+                      (Six), and many more.</h3>
+                </div>
+
+
+                <div class="iso-box col-sm-4" style="padding-left: 4em">
+                    <h3>Just Released</h3>
+                    <div id="podslide" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#podslide" data-slide-to="0" class="active"></li>
+                            <li data-target="#podslide" data-slide-to="1"></li>
+                            <li data-target="#podslide" data-slide-to="2"></li>
+                            <li data-target="#podslide" data-slide-to="3"></li>
+                            <li data-target="#podslide" data-slide-to="4"></li>
+                            <li data-target="#podslide" data-slide-to="5"></li>
+                            <li data-target="#podslide" data-slide-to="6"></li>
+                            <li data-target="#podslide" data-slide-to="7"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="single">
+                                    <div class="portfolio-thumb">
+                                        <img src="../static/image/actorPodcast" style="border-radius: 20%">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {%for row in recent%}
+                            <div class="item">
+                                <div class="single">
+                                    <div class="portfolio-thumb">
+                                        <img src="../static/image/{{row[2]}}" alt="most recent" style="border-radius: 20%">
+                                        <div class="portfolio-overlay">
+                                            <div class="portfolio-item">
+                                                <form id='selectedPost' method="POST" action="/podcastPost">
+                                                    <button name="listenButton" class="fa fa-microphone" value="{{row[0]}}"  form="selectedPost"></button>
+                                                </form>
+                                                <h2>{{row[0]}}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <iframe title="Actor Aesthetic" allowtransparency="true" height="315" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=xnh28-39b1f7-pbblog-playlist&share=1&download=1&skin=f6f6f6&btn-skin=8bbb4e&size=315" allowfullscreen=""></iframe>
+            <p style="margin-top:2em"></p>
+
+            <h4><i>Guests</i></h4>
+            <div class="podDB">
+                {%for row in guest%}
+                    <div class="single wow fadeInUp" data-wow-delay=".3s">
+                        <img src="../static/image/{{row[2]}}" alt="most recent">
+                        <h1>{{row[5]}}</h1>
+                        <h3>{{ row[1]}}</h3>
+                        <form id='selectedPod' method="POST" action="/podcastPost">
+                            <button name="listenButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPod">Full Podcast</button>
+                        </form>
+                    </div>
+                {%endfor%}
+            </div>
+
+
+
+            <h4><i>MAGtalkX</i></h4>
+            <div class="podDB">
+            {%for row in maggie%}
+                <div class="single wow fadeInUp" data-wow-delay=".5s">
+                    <img src="../static/image/{{row[2]}}" alt="most recent">
+                    <h3>{{ row[1]}}</h3>
+
+                    <form id='selectedPod' method="POST" action="/podcastPost">
+                        <button name="listenButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPod">Full Podcast</button>
+                    </form>
+                </div>
+            {%endfor%}
+            </div>
+        </div>
+
+        <div class="iso-box-section wow about fadeInUp" data-wow-delay="1s">
+            <div class="iso-box-wrapper col4-iso-box">
+                <div class="iso-box-section iso-box about center">
+                    <h1>What Others Are Saying...</h1>
+                </div>
+
+                <div class="iso-box about col-md-2 col-md-3">
+                    <div class="portfolio-thumb">
+                        <img src="../static/image/podcastmic.jpeg" class="img-responsive" alt="good stuff">
+                    </div>
+                </div>
+
+                <div class="iso-box about col-lg-10 col-md-6">
+                    <blockquote>“I had been going through a rough last couple of years after getting out of a emotionally abusive relationship and
+                        losing my dad and ultimately losing all of my drive and motivation and passion for things like theatre that I used to have.
+                        That was until my best friend Desha Murray introduced me to this podcast and what Maggie Bera does. Not only is she an
+                        inspiration to me but also has helped give me back my courage, motivation, and drive in theatre and made me realize all over
+                        again why I love it so much. It’s like falling In love with performing all over again. Maggie has and continues to inspire me
+                        daily with the podcast and her messages because it makes me be a better version of me and also do what I love and gives me
+                        strength to overcome my hardships and work harder than I ever have to be the actor I truly want to be. I can’t think Desha or
+                        Maggie enough for what they have done for me. 💙” <b>— TYLER M</b>
+                    </blockquote>
+                </div>
+                <div class="iso-box center about">
+                    <blockquote>
+                        “This podcast is a joy, and totally improves my Monday! I am super thankful for Maggie’s bubbly and
+                        open personality; she is so easy to listen to and knowledgeable on this content!! Thank you for this
+                        amazing and inspiring podcast for anyone who loves broadway. :)” <b>— ELLEDA S</b>
+                    </blockquote>
+                </div>
+
+                <div class="iso-box about col-lg-4 col-md-6">
+                    <blockquote>“I listen to these podcasts whenever I’m second-guessing myself as a performer and need a pick me up,
+                        and they are so helpful! Maggie is great at connecting with her listeners and making her podcasts personal and
+                        relatable! It is so easy to doubt yourself and feel down in this business but these podcasts are great for
+                        reminding you that you’re not alone! I definitely recommend!” <b>— KELSEY M</b>
+                    </blockquote>
+                </div>
+
+                <div class="iso-box about col-lg-4 col-sm-3">
+                    <div class="portfolio-thumb">
+                        <img src="../static/image/podcastMagge.jpeg" class="img-responsive" alt="good stuff">
+                    </div>
+                </div>
+                <div class="iso-box about col-lg-4 col-md-6">
+                    <blockquote>“As someone who did not go to college for theatre and got started auditioning pretty late in the game,
+                        there were a lot of things I didn’t know coming into the industry. (And plenty of questions I was embarrassed
+                        to ask!) This podcast is so informative and SO helpful! It is essential to any aspiring actor to give this one
+                        a listen. THANK YOU, Maggie for taking a lot of the stress out of getting started!”<b> — GINA</b>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer section
+================================================== -->
+<footer>
+    <script type="application/javascript" src="../static/include/footer.js"></script>
+</footer>
+
+
+
+<!-- Javascript
+================================================== -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/isotope.js"></script>
+<script src="../static/js/imagesloaded.min.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../AAserver.py"></script>
+
+</body>
+</html>

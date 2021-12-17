@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    	<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- Google web font
+   ================================================== -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+
+<script type="application/javascript" src="../static/include/header.js"></script>
+
+<!-- loginForm section
+================================================== -->
+<div class="loginForm">
+    <form action="/verify" method="post" name="login">
+        <h1 class="modal-title">login</h1>
+        <div class="loginForm form-group"><hr>
+            <h3><label for="username">username</label></h3>
+            <input type="text" name="username" id="username" class="loginForm form-control" aria-describedby="help" placeholder="Enter Username">
+        </div>
+
+        <div class="loginForm form-group">
+            <h3><label for="password">password</label></h3>
+            <input type="password" name="password" id="password" class="loginForm form-control" aria-describedby="help" placeholder="Enter Password">
+        </div>
+
+        <button type="submit" class="loginForm">login</button>
+    </form>
+</div>
+
+<div class="register">
+    <div class="form-container">
+        <!-- Button trigger modal -->
+        <h3 type="button" class="ion-plus btn-lg center-block" data-toggle="modal" data-target="#userform">
+            Register for insider exclusives here!
+        </h3>
+        <!-- Modal -->
+        <div class="modal fade" id="userform" tabindex="-1" role="dialog" aria-labelledby="formTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="formTitle">New User</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="newUser" method="POST" action="/register">
+                            <div class="form-group">
+                                <label for="fullName"> Name </label>
+                                <input name="fullName" type="text" class="form-control" id="fullName" placeholder="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail"> Email Address</label>
+                                <input name="userEmail" type="email" class="form-control" id="userEmail" placeholder="email">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" name="userSubmit" form="newUser">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- footer section
+================================================== -->
+<footer>
+    <p style="background: rgba(179,172,172,0.29)">
+</footer>
+
+
+<!-- Javascript
+================================================== -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../AAserver.py"></script>
+</body>
+</html>

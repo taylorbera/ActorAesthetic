@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Site title
+   ================================================== -->
+	<title>Actor Aesthetic - BlogDatabase</title>
+
+		<!-- Bootstrap CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+	<!-- Animate CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/animate.min.css">
+
+	<!-- Font Icons CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+	<!-- Main CSS
+   ================================================== -->
+	<link rel="stylesheet" href="../static/css/style.css">
+
+	<!-- Google web font
+   ================================================== -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- Preloader section
+================================================== -->
+<div class="preloader">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+<script type="application/javascript" src="../static/include/header.js"></script>
+
+<!-- Header section
+================================================== -->
+<section id="header" class="header-two">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+          <div class="header-thumb">
+              <h1 class="wow fadeIn" data-wow-delay="0.6s">Blogs</h1>
+              <h3 class="wow fadeInUp" data-wow-delay="0.9s">explore advice</h3>
+              <h3 class="wow fadeInUp" data-wow-delay="1s">from maggie and fellow guest artists</h3>
+
+          </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- Blog section
+================================================== -->
+<section id="blog">
+    <div class="iso-box-wrapper" style="margin-left: 30px">
+        <div class="search-single iso-box all college covid equity life aud wow fadeInUp" data-wow-delay=".6s">
+            <ul class="filter-wrapper blog-filter-wrapper">
+                <li><a href="#" data-filter=".all" class="selected opc-main-bg" style="text-decoration:underline">View All</a></li>
+                <li><a href="#"  class="opc-main-bg" data-filter=".college" >College</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".equity">Equity</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".life">Lifestyle</a></li>
+                <li><a href="#" class="opc-main-bg" data-filter=".aud">Auditioning</a></li>
+            </ul>
+        <hr>
+        </div>
+
+        <div class="blog-search">
+        {% for row in blogdata %}
+            {%if row in top%}
+            <div class="iso-box all single">
+                <img src="../static/image/{{row[2]}}" alt="Blog">
+                <h3>{{row[0]}}</h3>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <p>{{row[1]}}</p>
+                <form id='selectedPostlife' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                </form>
+            </div>
+
+            {%elif row in college%}
+            <div class="iso-box all college single">
+                <img src="../static/image/{{row[2]}}" alt="Blog">
+                <h3>{{row[0]}}</h3>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <p>{{row[1]}}</p>
+                <form id='selectedPostlife' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                </form>
+            </div>
+
+            {%elif row in equity%}
+            <div class="iso-box all equity single">
+                <img src="../static/image/{{row[2]}}" alt="Blog">
+                <h3>{{row[0]}}</h3>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <p>{{row[1]}}</p>
+                <form id='selectedPostlife' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                </form>
+                </div>
+
+            {%elif row in lifestyle%}
+            <div class="iso-box all life single">
+                <img src="../static/image/{{row[2]}}" alt="Blog">
+                <h3>{{row[0]}}</h3>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <p>{{row[1]}}</p>
+                <form id='selectedPostlife' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                </form>
+            </div>
+
+            {%elif row in auditioning%}
+            <div class="iso-box all aud single">
+                <img src="../static/image/{{row[2]}}" alt="Blog">
+                <h3>{{row[0]}}</h3>
+                <div class="post-format">
+                    <span>By <a>Maggie Bera</a></span>
+                </div>
+                <p>{{row[1]}}</p>
+                <form id='selectedPostlife' method="POST" action="/blogPost">
+                    <button name="readButton" class="btn btn-default" value="{{row[0]}}"  form="selectedPostlife">Full Article</button>
+                </form>
+            </div>
+            {%endif%}
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Footer section
+================================================== -->
+<footer>
+  <script type="application/javascript" src="../static/include/footer.js"></script>
+</footer>
+
+<!-- Javascript
+================================================== -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/isotope.js"></script>
+<script src="../static/js/imagesloaded.min.js"></script>
+<script src="../static/js/wow.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../AAserver.py"></script>
+</body>
+</html>
